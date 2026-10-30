@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-them="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Workspace & Kanban Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="JS/app.js" type="module" defer></script>
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>لوحة إنجاز 🚀</h2>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li class="active"><a href="#">📊 لوحة التحكم</a></li>
+                <li><a href="#">📅 التقويم</a></li>
+                <li><a href="#">⚙️ الإعدادات</a></li>
+            </ul>
+        </nav>
+        <button id="them-toggle" class="them-btn">🌓 تبديل الوضع</button>
+    </aside>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="welcome-text">
+                <h1>مساحة العمل المشتركة</h1>
+                <p>مرحباً بك مجدداً! إليك نظرة عامة على مشاريعك اليوم</p>
+            </div>
+            <button id="open-modal-btn" class="btn-primary">➕ إضافة مهمة جديدة</button>
+        </header>
+        <section class="kanban-board">
+
+            <div class="kanban-column" data-status="todo">
+                <div class="column-header todo" >
+                    <h3>قيد الانتظار</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="task-list" id="todo-list"></div>
+            </div>
+
+            <div class="kanban-column" data-status="inprogress">
+                <div class="column-header inprogress" >
+                    <h3>جاري العمل</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="task-list" id="inprogress-list"></div>
+            </div>
+
+            <div class="kanban-column" data-status="done">
+                <div class="column-header done" >
+                    <h3>تم الانتهاء</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="task-list" id="done-list"></div>
+            </div>
+
+
+        </section>
+    </main>
+</div>
+
+<dialog id="task-modal" class="custom-modal">
+    <div class="modal-header">
+        <h2>إضافة مهمة جديدة</h2>
+        <button id="close-modal-btn" class="btn-close">×</button>
+    </div>
+    <form id="task-form" method="dialog">
+        <div class="form-group">
+            <label for="task-title">عنوان المهمة:</label>
+            <input type="text" id="task-title" required placeholder="أدخل عنوان المهمة...">
+        </div>
+        <div class="form-group">
+            <label for="task-disc">الوصف:</label>
+            <textarea type="text" id="task-disc" placeholder="اكتب تفاصيل المهمة هنا..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="task-priority">درجة الأهمية:</label>
+            <select  id="task-priority">
+                <option value="low">منخفضة 🟢</option>
+                <option value="medium">متوسطة 🟡</option>
+                <option value="high">عالية 🔴</option>
+            </select>
+        </div>
+        <div class="form-action">
+            <button type="button" id="cancel-btn">إلغاء</button>
+            <button type="submit" class="btn-submit">حفظ المهمة</button>
+        </div>
+    </form>
+</dialog>
+    
+
+
+</body>
+</html>
