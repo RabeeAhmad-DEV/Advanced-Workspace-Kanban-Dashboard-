@@ -7,11 +7,10 @@
     --border-color: #e2e8f0;
     --primary: #4f46e5;
     --primary-hover: #4338ca;
-    --tdo-color: #ef4444;
+    --todo-color: #ef4444;
     --inprogress-color: #f59e0b;
     --done-color: #10b981;
 }
-
 *{
     box-sizing: border-box;
     margin: 0;
@@ -29,7 +28,7 @@
 body{
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
     height: 100vh;
     overflow: hidden;
@@ -83,4 +82,166 @@ body{
 }
 .them-btn:hover{
     background-color: var(--bg-main);
+}
+.main-content{
+    padding: 40px;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.welcome-text p{
+    color: var(--primary);
+    margin-top: 4px;
+}
+.btn-primary{
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-primary:hover{
+    background-color: var(--primary-hover);
+}
+.kanban-board{
+    display: grid;
+    grid-template-columns: 3, 1fr;
+    gap: 24px;
+    align-items: flex-start;
+    height: 100%;
+}
+.kanban-column{
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+.column-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+.column-header h3{
+    font-size: 16px;
+    font-weight: 600;
+}
+.task-count{
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+.column-header.todo{
+    border-bottom-color: var(--todo-color);
+}
+.column-header.inprogress{
+    border-bottom-color: var(--inprogress-color);
+}
+.column-header.done{
+    border-bottom-color: var(--done-color);
+}
+.task-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: grab; /* يغير شكل الماوس ليد تدل على السحب */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.task-card:active { cursor: grabbing; }
+.task-card h4 { font-size: 15px; font-weight: 600; }
+.task-card p { font-size: 13px; color: var(--text-muted); }
+.custom-modal {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    background-color: var(--bg-sidebar); 
+    color: var(--text-primary);
+    width: 90%;
+    max-width: 480px;
+    margin: auto; 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+.custom-modal::backdrop {
+    background-color: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(5px);
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+}
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.form-action {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+#cancel-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+#cancel-btn:hover {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+.btn-submit {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
 }
