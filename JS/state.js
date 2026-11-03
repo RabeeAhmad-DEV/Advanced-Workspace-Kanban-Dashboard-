@@ -11,3 +11,8 @@ export function addtask(title, description, priority){
     localStorage.setItem('kanbantasks',JSON.stringify(tasks));
     return newtask;    
 };
+
+export function clearalltasksdata() {
+    tasks = [];
+    localStorage.removeItem('kanbantasks');
+}

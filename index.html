@@ -11,7 +11,7 @@
 <div class="app-container">
     <aside class="sidebar">
         <div class="logo">
-            <h2>لوحة إنجاز 🚀</h2>
+            <h2>مـديــر الـمـهـام</h2>
         </div>
         <nav class="menu">
             <ul>
@@ -20,6 +20,8 @@
                 <li><a href="#">⚙️ الإعدادات</a></li>
             </ul>
         </nav>
+        <button id="clear-all-btn" class="clear-btn" style="margin-top: 12px; background-color: var(--todo-color); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; width: 100%;">🗑️ مسح جميع المهام</button>
+
         <button id="them-toggle" class="them-btn">🌓 تبديل الوضع</button>
     </aside>
     <main class="main-content">
@@ -58,6 +60,17 @@
 
 
         </section>
+        
+        <section id="calendar-view" class="content-section" style="display: none; padding: 24px;">
+            <h2>📅 تقويم مساحة العمل</h2>
+            <p style="color: var(--text-muted); margin-top: 8px;">ميزة التقويم قيد التحضير لربط المهام بجدول زمني ذكي...</p>
+        </section>
+
+       
+        <section id="settings-view" class="content-section" style="display: none; padding: 24px;">
+            <h2>⚙️ الإعدادات العامة</h2>
+            <p style="color: var(--text-muted); margin-top: 8px;">هنا يمكنك إدارة تفاصيل الحساب، مساحات العمل المشتركة، وتخصيص المنصة...</p>
+        </section>
     </main>
 </div>
 
@@ -89,6 +102,16 @@
         </div>
     </form>
 </dialog>
+
+<dialog id="confirm-modal" class="custom-modal" style="max-width: 380px; text-align: center;">
+    <h3 style="margin-bottom: 12px;">⚠️ تأكيد الحذف النهائي</h3>
+    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">هل أنت متأكد فعلاً من مسح جميع المهام؟ لا يمكن التراجع عن هذه الخطوة!</p>
+    <div class="modal-actions" style="display: flex; justify-content: center; gap: 12px;">
+        <button id="confirm-cancel-btn" class="btn-primary" style="background-color: transparent; border: 1px solid var(--border-color); color: var(--text-muted);">إلغاء</button>
+        <button id="confirm-delete-btn" class="btn-submit" style="background-color: var(--todo-color);">نعم، امسح الكل</button>
+    </div>
+</dialog>
+
     
 
 
